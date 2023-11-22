@@ -1,5 +1,7 @@
 import React from 'react';
 import './restaurant.styles.css';
+import { Menu } from '../menu/Menu';
+import { Reviews } from '../reviews/Reviews';
 
 export const Restaurant = ({ restaurant }) => {
     const { name, menu, reviews } = restaurant;
@@ -7,18 +9,8 @@ export const Restaurant = ({ restaurant }) => {
     return (
         <div className='restaurant'>
             {name && <h2>{name}</h2>}
-            {menu && (
-                <>
-                    <h3>Меню</h3>
-                    <ul>{menu.map((menuItem) => <li key={menuItem.id}>{menuItem.name}</li>)}</ul>
-                </>
-            )}
-            {reviews && (
-                <>
-                    <h3>Отзывы</h3>
-                    <ul>{reviews.map((reviewItem) => <li key={reviewItem.id}>{reviewItem.text}</li>)}</ul>
-                </>
-            )}
+            <Menu menu={menu} />
+            <Reviews reviews={reviews} />
         </div>
     );
 };
