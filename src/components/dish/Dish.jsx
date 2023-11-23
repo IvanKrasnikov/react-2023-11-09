@@ -12,10 +12,10 @@ export const Dish = ({ title }) => {
     }
 
     const decreaseCount = () => {
-        setCount((count !== MIN_COUNT) ? (count - 1) : 0);
+        setCount((count !== MIN_COUNT) ? (count - 1) : MIN_COUNT);
     }
 
-    /* TODO: remove logs after answering questions */
+    /* TODO: remove logs after asking questions */
     const increaseCount = () => {
         console.log('count before increment', count);
         setCount((count < MAX_COUNT) ? (count + 1) : MAX_COUNT);
@@ -25,7 +25,7 @@ export const Dish = ({ title }) => {
     console.log('count before render', count);
 
     return (
-        <div >
+        <div>
             <span>
                 {title}
             </span>

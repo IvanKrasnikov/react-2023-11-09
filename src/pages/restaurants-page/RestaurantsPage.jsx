@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { Categories } from '../../components/categories/Categories';
-import { Restaurants } from '../../components/restaurants/Restaurants';
+import { Restaurant } from '../../components/restaurant/Restaurant';
 
 export const RestaurantsPage = ({ restaurants }) => {
     const [selectedCategory, setSelectedCategory] = useState(null);
     const names = restaurants.map((restaurant) => restaurant.name);
 
-    const selectedRestaurants = restaurants.filter((restaurant) => {
-        return restaurant.name === selectedCategory;
-    });
+    const selectedRestaurant = restaurants.find((restaurant) => restaurant.name === selectedCategory);
 
     if (!restaurants.length) {
         return null;
@@ -17,7 +15,7 @@ export const RestaurantsPage = ({ restaurants }) => {
     return (
         <>
             {names?.length > 0 && <Categories categories={names} onSelectCategory={setSelectedCategory} />}
-            {selectedCategory && <Restaurants restaurants={selectedRestaurants} />}
+            {selectedCategory && selectedRestaurant && <Restaurant restaurant={selectedRestaurant} />}
         </>
     );
 };
