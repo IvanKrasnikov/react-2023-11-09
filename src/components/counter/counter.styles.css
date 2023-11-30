@@ -1,0 +1,13 @@
+.counter {
+    display: flex;
+}
+
+.counter-value {
+    margin: 0 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.counter-button {
+    width: 22px;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const Category = ({ title }) => {
-    return title && <button>{title}</button>;
+export const Category = ({ title, onClick }) => {
+    return title && <button onClick={onClick}>{title}</button>;
 };
